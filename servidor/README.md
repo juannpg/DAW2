@@ -1,0 +1,1 @@
+los archivos con nombre /xampp/htdocs/dwes se encuentran en el document root de apache pero los subo aqui
