@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EJERCICIOS FORMULARIOS 2.1</title>
+
+    <style>
+      .calculadora {
+        display: grid;
+        grid-template-columns: repeat(4, 3vw);
+        gap: 12px;
+      }
+
+      .doble {
+        grid-column: span 2;
+      }
+    </style>
+  </head>
+  <body>
+    <form class="calculadora">
+      <button>7</button>
+      <button>8</button>
+      <button>9</button>
+      <button>/</button>
+      <button>4</button>
+      <button>5</button>
+      <button>6</button>
+      <button>*</button>
+      <button>1</button>
+      <button>2</button>
+      <button>3</button>
+      <button>+</button>
+      <button>0</button>
+      <button class="doble">=</button>
+      <button>-</button>
+    </form>
+  </body>
+</html>

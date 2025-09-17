@@ -4,13 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>EJERCICIOS FORMULARIOS 1.3</title>
-
-    <style>
-      fieldset {
-        border: none;
-        padding: 0px;
-      }
-    </style>
   </head>
   <body>
     <form action="#">
@@ -18,16 +11,16 @@
       <input type="text" name="nombre" id="nombre" />
       <br />
 
-      <fieldset>
-        <legend>Seleccione el nivel de estudios que tiene:</legend>
+      <label
+        >Seleccione el nivel de estudios que tiene:
         <div>
           <input
             type="radio"
             name="estudios"
-            value="sin-estudios"
-            id="sin-estudios"
+            value="sin_estudios"
+            id="sin_estudios"
           />
-          <label for="sin-estudios">Sin estudios</label>
+          <label for="sin_estudios">Sin estudios</label>
         </div>
         <div>
           <input type="radio" name="estudios" value="primario" id="primario" />
@@ -51,7 +44,7 @@
           />
           <label for="universitario">Universitario</label>
         </div>
-      </fieldset>
+      </label>
       <button type="submit">Enviar</button>
     </form>
   </body>
