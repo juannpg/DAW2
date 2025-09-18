@@ -1,0 +1,3 @@
+[submodule "subdirectorio_despliegue_bilingue"]
+	path = subdirectorio_despliegue_bilingue
+	url = git@github.com:juannpg/despliegue_bilingue_juanpasamar.git
