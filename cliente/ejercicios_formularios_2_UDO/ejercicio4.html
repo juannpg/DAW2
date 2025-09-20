@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ejerciico 2.4</title>
+  </head>
+  <body>
+    <form action="#">
+      <label for="apellido-nombre">Apellido y nombre:</label>
+      <input type="text" name="apellido-nombre" id="apellido-nombre" />
+      <br />
+
+      <label for="edad"
+        >Es mayor de edad?:
+        <div>
+          <label for="si">Sí</label>
+          <input type="radio" name="si" id="si" />
+        </div>
+        <div>
+          <label for="no">No</label>
+          <input type="radio" name="no" id="no" />
+        </div>
+      </label>
+
+      <label for="telefono">Telefono: </label>
+      <input type="tel" name="telefono" id="telefono" value="453-" />
+      <br />
+
+      <textarea
+        name="comentarios"
+        id="cometarios"
+        placeholder="Ingrese aquí sus comentarios...."
+        rows="7"
+        cols="35"
+      ></textarea>
+      <br />
+
+      <button type="submit">Enviar</button>
+    </form>
+  </body>
+</html>
