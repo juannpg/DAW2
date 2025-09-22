@@ -1,0 +1,28 @@
+services:
+  apache:
+    build: .
+    ports:
+      - "9001:80"
+    volumes:
+      - C:\Users\juanp\Documents\repos\daw2\servidor\dockerfile\src:/var/www/html
+    hostname: apache-compose
+    container_name: apache-compose
+  mysql:
+    image: mysql
+    environment:
+      - MYSQL_DATABASE=alumnos
+      - MYSQL_USER=juan
+      - MYSQL_PASSWORD=12345678
+      - MYSQL_ROOT_PASSWORD=12345678
+    volumes:
+      - C:\Users\juanp\Documents\repos\daw2\servidor\dockerfile\mysql:/var/lib/mysql
+    container_name: mysql-compose
+  phpmyadmin:
+    image: phpmyadmin
+    ports:
+      - "9080:80"
+    environment:
+      - PMA_HOST=mysql
+      - PMA_ARBITRARY=1
+    depends_on:
+      - mysql
