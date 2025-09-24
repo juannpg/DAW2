@@ -1,7 +1,11 @@
 :root {
   --color-fondo: #f8f8f8;
-  --color-medio: #d9d9d9;
+  --color-medio: #7a94c6;
   --color-oscuro: #333333;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 * {
@@ -55,7 +59,7 @@ main h1 {
 main h2 {
   font-size: 1.5rem;
   margin-bottom: 2rem;
-  color: #555;
+  color: #fff;
 }
 
 .hero-image {
@@ -95,7 +99,6 @@ section h3 {
   text-align: center;
 }
 
-/* GRID SERVICIOS */
 .servicios-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -147,7 +150,6 @@ section h3 {
   background-image: url("./media/p-3.jpg");
 }
 
-/* PRODUCTOS EN 2 COLUMNAS */
 .productos-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
@@ -166,7 +168,22 @@ section h3 {
   font-weight: bold;
 }
 
-/* CONTACTO */
+.producto-a-bg {
+  background-image: url("./media/p-1.jpg");
+  background-size: cover;
+  background-position: center;
+  color: white;
+  text-shadow: 1px 1px 4px #333;
+}
+
+.producto-b-bg {
+  background-image: url("./media/p-2.jpg");
+  background-size: cover;
+  background-position: center;
+  color: white;
+  text-shadow: 1px 1px 4px #333;
+}
+
 .contacto {
   background-color: var(--color-medio);
   padding: 4rem 2rem;
@@ -203,7 +220,6 @@ section h3 {
   font-size: 1.1rem;
 }
 
-/* FOOTER */
 footer {
   background-color: var(--color-oscuro);
   color: white;

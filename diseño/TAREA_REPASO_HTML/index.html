@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YOUR COFFEE</title>
+
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <!-- seccion de header, con titulo y eslogan -->
+    <header>
+      <h1>your coffee.</h1>
+      <p>café de especialidad, para gente especial.</p>
+    </header>
+    <!-- seccion de productos -->
+    <section class="productos">
+      <!-- texto para diferenciar la seccion -->
+      <div class="container">
+        <h2>nuestros productos.</h2>
+        <p>café de la mayor calidad.</p>
+      </div>
+      <!-- producto individual -->
+      <article class="producto">
+        <!-- imagen -->
+        <div class="producto-img">
+          <img
+            src="./media/cafe-negro-nomolido.webp"
+            alt="imagen de café negro sin moler"
+          />
+        </div>
+        <!-- texto descriptivo, precio y compra -->
+        <div class="producto-text">
+          <h3>cafe negro no-molido.</h3>
+          <p>
+            disfruta de el café de mayor calidad del mercado en tu máquina de
+            moler, para conseguir un café negro digno del amazonas
+          </p>
+          <p class="precio">17.56€ cada 100 gramos.</p>
+          <a href="">compra</a>
+        </div>
+      </article>
+      <article class="producto left">
+        <div class="producto-text">
+          <h3>cafe cápsulas espresso vainilla.</h3>
+          <p>
+            vainilla elaborada en todo su proceso en nuestras fábricas de
+            vainilla, tratada con ambientadores y agua de cacahuete para
+            potenciar su sabor. con nuestro café espresso crea una combinación
+            espectacular que llena todas tus papilas gustativas.
+          </p>
+          <p class="precio">9.99€ por cápsula.</p>
+          <a href="">compra</a>
+        </div>
+        <div class="producto-img">
+          <img
+            src="./media/cafe-espresso-vainilla.webp"
+            alt="imagen de nuestras cápsulas de espreso de vainilla"
+          />
+        </div>
+      </article>
+      <article class="producto">
+        <div class="producto-img">
+          <img
+            src="./media/cucharilla-especialidad.webp"
+            alt="imagen de nuestro pack cucharilla y taza de especialidad"
+          />
+        </div>
+        <div class="producto-text">
+          <h3>pack cucharilla y taza de especialidad.</h3>
+          <p>
+            para disfrutar de la mejor experiencia al tomar tu espreso,
+            necesitas los mejores materiales. nuestro pack cucharilla y taza de
+            especialidad te ofreceran el mejor sorbo de espreso del mercado.
+          </p>
+          <p class="precio">20€</p>
+          <a href="">compra</a>
+        </div>
+      </article>
+    </section>
+    <!-- seccion para el formulario de contacto -->
+    <section class="contacto">
+      <form action="#">
+        <h2>contáctanos</h2>
+        <label for="nombre">tu nombre:</label>
+        <input type="text" name="nombre" id="nombre" />
+        <label for="email">tu email:</label>
+        <input type="email" name="email" id="email" />
+        <label for="mensaje">tu mensaje:</label>
+        <textarea
+          name="mensaje"
+          id="mensaje"
+          class="no-resize"
+          placeholder=" ..."
+        ></textarea>
+        <button type="submit">enviar.</button>
+      </form>
+    </section>
+    <!-- pequeño footer -->
+    <footer>
+      <div class="footer">
+        <div>
+          <h4>Sobre Nosotros</h4>
+          <p>el café del barrio.</p>
+        </div>
+      </div>
+      <div class="footer">&copy; 2024 your coffee</div>
+    </footer>
+  </body>
+</html>

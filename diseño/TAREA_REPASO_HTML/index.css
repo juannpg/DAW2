@@ -1,0 +1,121 @@
+:root {
+  --color-fondo: #f8f8f8;
+  --color-fondo2: #eadfdf;
+  --color-medio: #c6ab7a;
+  --color-oscuro: #333333;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Courier New", Courier, monospace, sans-serif;
+  background-color: var(--color-fondo);
+  color: var(--color-oscuro);
+  line-height: 1.6;
+}
+
+header {
+  background-color: var(--color-medio);
+  color: white;
+  padding: 1.5rem 3rem;
+  text-align: left;
+}
+
+section.productos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  padding: 2rem;
+  gap: 2rem;
+  text-align: right;
+  background-color: var(--color-fondo2);
+}
+
+section.productos .container {
+  width: 80dvw;
+}
+
+section article.producto {
+  display: flex;
+  flex-direction: row;
+  width: 80dvw;
+  background-color: var(--color-fondo);
+  padding: 3rem 2rem;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+section article.producto .producto-img {
+  width: 44%;
+}
+
+section article.producto .producto-text {
+  width: 56%;
+}
+
+section article.producto .producto-text a {
+  color: var(--color-oscuro);
+  font-weight: 600;
+}
+
+section article.producto .producto-text .precio {
+  font-weight: bold;
+}
+
+section article.producto .producto-img img {
+  width: 100%;
+}
+
+section article.left {
+  text-align: left;
+}
+
+section.contacto {
+  display: flex;
+  justify-content: center;
+}
+
+section.contacto form {
+  width: 80dvw;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  gap: 2rem;
+  text-align: left;
+  background-color: var(--color-fondo);
+}
+
+section.contacto form button {
+  min-width: 120px;
+  width: 20%;
+  max-width: 300px;
+  align-self: center;
+  background-color: transparent;
+  border: 1px solid var(--color-oscuro);
+}
+
+textarea.no-resize {
+  min-height: 70px;
+  resize: none;
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--color-fondo2);
+  padding: 2rem;
+}
+
+.footer {
+  width: 80dvw;
+}
