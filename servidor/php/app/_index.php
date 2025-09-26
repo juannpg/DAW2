@@ -7,5 +7,8 @@
 </head>
 <body>
   <h1>funciona??</h1>
+  <?php
+    phpinfo();
+  ?>
 </body>
 </html>
