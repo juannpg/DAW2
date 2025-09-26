@@ -15,16 +15,25 @@
     </tr>
     <?php
     for ($i = 0; $i <= 16; $i++) {
-      $binario = decbin($i);
-      $octal = decoct($i);
-      $hexadecimal = dechex($i);
+      // $binario = decbin($i);
+      // $octal = decoct($i);
+      // $hexadecimal = dechex($i);
       
-      echo "<tr>";
-      echo "<td>$i</td>";
-      echo "<td>$binario</td>";
-      echo "<td>$octal</td>";
-      echo "<td>$hexadecimal</td>";
-      echo "</tr>";
+      // echo "<tr>";
+      // echo "<td>$i</td>";
+      // echo "<td>$binario</td>";
+      // echo "<td>$octal</td>";
+      // echo "<td>$hexadecimal</td>";
+      // echo "</tr>";
+
+      printf("
+        <tr>
+          <td>%d</td>
+          <td>%b</td>
+          <td>%o</td>
+          <td>%x</td>
+        </tr>",
+        $i, $i, $i, $i);
     }
     ?>
   </table>
