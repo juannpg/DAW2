@@ -14,7 +14,7 @@
       <th>hexadecimal</th>
     </tr>
     <?php
-    for ($i = 32; $i <= 125; $i++) {
+    for ($i = 1; $i <= 50; $i++) {
       // $binario = decbin($i);
       // $octal = decoct($i);
       // $hexadecimal = dechex($i);
