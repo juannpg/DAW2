@@ -1,0 +1,14 @@
+---
+import HeroImg from "../assets/hero.png"
+import Image from "astro/components/Image.astro"
+---
+<main class="text-claro flex flex-row align-middle justify-center gap-2 p-6 px-16">
+  <div class="w-1/2">
+    <h1 class="text-7xl">LA CIENCIA DE ZARAGOZA</h1>
+    <p class="text-3xl">Descubre el arte de tu ciudad</p>
+    <p class="text-3xl">en la palma de tu mano</p>
+  </div>
+  <div class="w-1/2">
+    <Image src={HeroImg} alt={"Mapa"} class="w-full rounded-[7px]" />
+  </div>
+</main>
