@@ -1,0 +1,18 @@
+# Node modules and build artifacts
+node_modules/
+.env
+
+# Docker
+.docker/
+*.env
+.env.*
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db

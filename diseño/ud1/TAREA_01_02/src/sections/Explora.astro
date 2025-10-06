@@ -1,0 +1,50 @@
+---
+import ExpositionCard from "../components/ExpositionCard.astro"
+import Museo1 from "../assets/museo1.jpeg"
+import Museo2 from "../assets/museo2.jpeg"
+import Museo3 from "../assets/museo3.jpeg"
+import Museo4 from "../assets/museo4.jpeg"
+import Museo5 from "../assets/museo5.jpeg"
+import Museo6 from "../assets/museo6.jpeg"
+---
+<main class="text-claro flex flex-col text-center align-middle justify-center gap-2 p-4 sm:p-6 px-4 sm:px-16">
+  <h2 class="text-3xl sm:text-5xl mb-4">EXPLORA</h2>
+  <p class="text-xl sm:text-2xl mb-10 sm:mb-20">Interactua con nuestras exposiciones</p>
+  <div class="relative">
+    <button id="scrollLeft" class="absolute left-2 sm:left-10 top-1/2 -translate-y-1/2 z-10 bg-oscuro/90 w-10 sm:w-16 aspect-square cursor-pointer text-white px-2 py-1 rounded-full opacity-0 transition-opacity" aria-label="Scroll Left">
+      &#8592;
+    </button>
+    <div id="scrollContainer" class="flex flex-row gap-3 sm:gap-6 overflow-x-auto scrollbar-hide scroll-smooth pb-4">
+      <ExpositionCard image={Museo1} alt="Imagen de stock 1" title="Dinosaurios Prehistóricos" />
+      <ExpositionCard image={Museo2} alt="Imagen de stock 2" title="Vida Marina" />
+      <ExpositionCard image={Museo3} alt="Imagen de stock 3" title="Ecosistemas Terrestres" />
+      <ExpositionCard image={Museo4} alt="Imagen de stock 4" title="Aves del Mundo" />
+      <ExpositionCard image={Museo5} alt="Imagen de stock 5" title="Minerales y Gemas" />
+      <ExpositionCard image={Museo6} alt="Imagen de stock 6" title="Insectos y Artrópodos" />
+    </div>
+    <button id="scrollRight" class="absolute right-2 sm:right-10 top-1/2 -translate-y-1/2 z-10 bg-oscuro/90 text-white px-2 py-1 rounded-full opacity-0 transition-opacity w-10 sm:w-16 aspect-square cursor-pointer" aria-label="Scroll Right">
+      &#8594;
+    </button>
+  </div>
+  <script type="module">
+    const container = document.getElementById('scrollContainer');
+    const leftBtn = document.getElementById('scrollLeft');
+    const rightBtn = document.getElementById('scrollRight');
+
+    function updateButtons() {
+      if (!container) return;
+      leftBtn.style.opacity = container.scrollLeft > 0 ? '1' : '0';
+      rightBtn.style.opacity = (container.scrollLeft + container.clientWidth < container.scrollWidth) ? '1' : '0';
+    }
+
+    leftBtn.addEventListener('click', () => {
+      container.scrollBy({ left: -container.clientWidth / 1.5, behavior: 'smooth' });
+    });
+    rightBtn.addEventListener('click', () => {
+      container.scrollBy({ left: container.clientWidth / 1.5, behavior: 'smooth' });
+    });
+    container.addEventListener('scroll', updateButtons);
+    window.addEventListener('resize', updateButtons);
+    window.addEventListener('DOMContentLoaded', updateButtons);
+  </script>
+</main>

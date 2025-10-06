@@ -1,0 +1,28 @@
+---
+import CollectionCard from "../components/CollectionCard.astro";
+import Museo1 from "../assets/museo1.jpeg";
+import Museo2 from "../assets/museo2.jpeg";
+import Museo3 from "../assets/museo3.jpeg";
+---
+
+<main class="text-claro flex flex-col text-center align-middle justify-center gap-2 p-4 sm:p-6 px-4 sm:px-16">
+  <h2 class="text-3xl sm:text-5xl mb-4">COLECCIONA</h2>
+  <p class="text-lg sm:text-2xl mb-10 sm:mb-20">Guarda pruebas de nuestras exposiciones para coleccionar</p>
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+    <CollectionCard 
+      image={Museo1} 
+      alt="Colección de dinosaurios" 
+      title="Colección de dinosaurios" 
+    />
+    <CollectionCard 
+      image={Museo2} 
+      alt="Colección de vida marina" 
+      title="Colección de vida marina" 
+    />
+    <CollectionCard 
+      image={Museo3} 
+      alt="Colección de minerales" 
+      title="Colección de minerales" 
+    />
+  </div>
+</main>

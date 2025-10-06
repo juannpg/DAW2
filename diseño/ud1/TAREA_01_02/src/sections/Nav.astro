@@ -1,0 +1,29 @@
+---
+import { Icon } from 'astro-icon/components'
+import icon from '../assets/icon.svg'
+import Image from 'astro/components/Image.astro'
+---
+
+<nav class="text-texto bg-oscuro p-4 sm:p-6 px-4 sm:px-16 flex flex-col sm:flex-row justify-between items-center gap-4 sm:gap-0">
+  <a class="flex items-center gap-3" href="#hero">
+    <Image src={icon} alt="Museo Natural Logo" class="w-8 h-8 text-texto" />
+    <h1 class="text-2xl sm:text-3xl">MUSEO NATURAL</h1>
+  </a>
+  <div class="flex gap-4 sm:gap-8 items-center">
+    <a href="#hero" class="hover:text-claro transition-colors p-2">
+      <Icon name="mdi:home" class="w-6 h-6" />
+    </a>
+    <a href="#explora" class="hover:text-claro transition-colors p-2">
+      <Icon name="mdi:compass" class="w-6 h-6" />
+    </a>
+    <a href="#colecciona" class="hover:text-claro transition-colors p-2">
+      <Icon name="mdi:book-open-variant" class="w-6 h-6" />
+    </a>
+    <a href="#ubica" class="hover:text-claro transition-colors p-2">
+      <Icon name="mdi:map-marker" class="w-6 h-6" />
+    </a>
+    <a href="#contacta" class="hover:text-claro transition-colors p-2">
+      <Icon name="mdi:email" class="w-6 h-6" />
+    </a>
+  </div>
+</nav>

@@ -1,0 +1,37 @@
+---
+import Colecciona from '../sections/Colecciona.astro';
+import Contacta from '../sections/Contacta.astro';
+import Explora from '../sections/Explora.astro';
+import Footer from '../sections/Footer.astro';
+import Hero from '../sections/Hero.astro';
+import Nav from '../sections/Nav.astro';
+import Ubica from '../sections/Ubica.astro';
+import Layout from '../layouts/Layout.astro';
+import Separator from '../sections/Separator.astro';
+---
+
+<Layout>
+  <main class="flex flex-col gap-y-10 sm:gap-y-20">
+    <Nav />
+    <div id="hero">
+      <Hero />
+    </div>
+    <Separator />
+    <div id="explora">
+      <Explora />
+    </div>
+    <Separator />
+    <div id="colecciona">
+      <Colecciona />
+    </div>
+    <Separator />
+    <div id="ubica">
+      <Ubica />
+    </div>
+    <Separator />
+    <div id="contacta">
+      <Contacta />
+    </div>
+    <Footer />
+  </main>
+</Layout>
