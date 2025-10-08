@@ -9,45 +9,45 @@ const mensaje =
 alert(mensaje);
 
 //2
-let error = false;
-const n1 = prompt("ej2 numero1: Dame un numero");
+let err = false;
+const dec1 = prompt("ej2 numero1: Dame un numero");
 const desplazamiento = prompt("ej2 desplazamiento: desplazamiento");
 
-if (isNaN(n1) || n1 == "") {
+if (isNaN(dec1) || dec1 == "") {
   slot13.innerHTML = "ej2: No has introducido un numero en numero1";
-  error = true;
+  err = true;
 }
 
 if (isNaN(desplazamiento) || desplazamiento == "") {
   slot13.innerHTML = "ej2: No has introducido un numero en desplazamiento";
-  error = true;
+  err = true;
 }
 
-if (!error) {
-  const resultadoDecimal = n1 >> desplazamiento;
+if (!err) {
+  const resultadoDecimal = dec1 >> desplazamiento;
   const resultadoBinario = resultadoDecimal.toString(2);
-  slot13.innerHTML = `ej2: El numero ${n1} desplazado ${desplazamiento} posiciones a la derecha es ${resultadoDecimal} y en binario es ${resultadoBinario}`;
+  slot13.innerHTML = `ej2: El numero ${dec1} desplazado ${desplazamiento} posiciones a la derecha es ${resultadoDecimal} y en binario es ${resultadoBinario}`;
 }
 
 //3
-error = false;
-const n2 = prompt("ej3 numero1: Dame un numero");
+err = false;
+const dec2 = prompt("ej3 numero1: Dame un numero");
 const desplazamiento2 = prompt("ej3 desplazamiento: desplazamiento");
 
-if (isNaN(n2) || n2 == "") {
+if (isNaN(dec2) || dec2 == "") {
   slot14.innerHTML = "ej3: No has introducido un numero en numero1";
-  error = true;
+  err = true;
 }
 
 if (isNaN(desplazamiento2) || desplazamiento2 == "") {
   slot14.innerHTML = "ej3: No has introducido un numero en desplazamiento";
-  error = true;
+  err = true;
 }
 
-if (!error) {
-  const resultadoDecimal = n2 << desplazamiento2;
+if (!err) {
+  const resultadoDecimal = dec2 << desplazamiento2;
   const resultadoBinario = resultadoDecimal.toString(2);
-  slot14.innerHTML = `ej3: El numero ${n2} desplazado ${desplazamiento2} posiciones a la derecha es ${resultadoDecimal} y en binario es ${resultadoBinario}`;
+  slot14.innerHTML = `ej3: El numero ${dec2} desplazado ${desplazamiento2} posiciones a la derecha es ${resultadoDecimal} y en binario es ${resultadoBinario}`;
 }
 //4
 console.log("maximo valor posible", Number.MAX_VALUE);
