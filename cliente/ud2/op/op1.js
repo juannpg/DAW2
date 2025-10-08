@@ -27,17 +27,17 @@ let anioNacimiento = prompt(
 );
 
 let error = false;
-if (isNaN(diaNacimiento) || typeof diaNacimiento === "string") {
+if (isNaN(diaNacimiento) || diaNacimiento == "") {
   error = true;
   main.innerHTML += "<p>ej1: El día que has introducido no es un número</p>";
 }
 
-if (isNaN(mesNacimiento) || typeof mesNacimiento === "string") {
+if (isNaN(mesNacimiento) || mesNacimiento == "") {
   error = true;
   main.innerHTML += "<p>ej1: El mes que has introducido no es un número</p>";
 }
 
-if (isNaN(anioNacimiento) || typeof anioNacimiento === "string") {
+if (isNaN(anioNacimiento) || anioNacimiento == "") {
   error = true;
   main.innerHTML += "<p>ej1: El año que has introducido no es un número</p>";
 }
@@ -76,12 +76,12 @@ error = false;
 let base = prompt("ej2 exponencial: Ingrese un numero:");
 let exponente = prompt("ej2 exponencial: Ingrese un exponente:");
 
-if (isNaN(base) || typeof base === "string") {
+if (isNaN(base) || base == "") {
   error = true;
   slot.innerHTML = "ej2: El numero introducido no es un numero";
 }
 
-if (isNaN(exponente) || typeof exponente === "string") {
+if (isNaN(exponente) || exponente == "") {
   error = true;
   slot.innerHTML = "ej2: El exponente introducido no es un numero";
 }
@@ -93,7 +93,7 @@ if (!error) {
 }
 //3
 let num = prompt("ej3 par o imapr: Ingrese un numero:");
-if (isNaN(num) || typeof num === "string") {
+if (isNaN(num) || num == "") {
   slot2.innerHTML = "ej3: El numero introducido no es un numero";
 } else {
   if (num % 2 === 0) {
@@ -107,11 +107,11 @@ if (isNaN(num) || typeof num === "string") {
 error = false;
 const n1 = prompt("ej4 multiplos: numero 1");
 const n2 = prompt("ej4 multiplos: numero 2");
-if (isNaN(n1) || typeof n1 === "string") {
+if (isNaN(n1) || n1 == "") {
   error = true;
   slot3.innerHTML = "ej4: El numero 1 introducido no es un numero";
 }
-if (isNaN(n2) || typeof n2 === "string") {
+if (isNaN(n2) || n2 == "") {
   error = true;
   slot3.innerHTML = "ej4: El numero 2 introducido no es un numero";
 }
@@ -148,11 +148,11 @@ for (let i = 0; i < meses.length; i++) {
 error = false;
 const n3 = prompt("ej6 mayor o menor: Ingrese un numero");
 const n4 = prompt("ej6 mayor o menor: Ingrese otro numero");
-if (isNaN(n3) || typeof n3 === "string") {
+if (isNaN(n3) || n3 == "") {
   error = true;
   slot5.innerHTML += "ej6:  numero 1 introducido no es un numero<br />";
 }
-if (isNaN(n4) || typeof n4 === "string") {
+if (isNaN(n4) || n4 == "") {
   error = true;
   slot5.innerHTML += "ej6:  numero 2 introducido no es un numero";
 }
@@ -196,7 +196,7 @@ function factorial(num) {
 
 const n = prompt("ej8 factorial: Ingrese un número");
 
-if (isNaN(n) || typeof n === "string") {
+if (isNaN(n) || n == "") {
   slot9.innerHTML = "ej8: No has introducido un numero en el ejercicio8";
 } else if (n < 0) {
   slot3.innerHTML =

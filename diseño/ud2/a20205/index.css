@@ -1,0 +1,158 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Ejercicio 1 */
+#ejercicio1 .contenedor-estatico {
+  background-color: #f0f0f0;
+  padding: 20px;
+  margin: 20px;
+}
+
+#ejercicio1 input,
+#ejercicio1 p {
+  margin: 10px 0;
+  padding: 10px;
+  display: block;
+}
+
+/* Ejercicio 2 */
+#ejercicio2 .contenedor-relativo {
+  background-color: #d0e7ff;
+  height: 150px;
+  margin: 20px;
+  position: relative;
+}
+
+#ejercicio2 .caja-relativa {
+  background-color: #4a90e2;
+  color: white;
+  padding: 10px;
+  position: relative;
+  top: 20px;
+  left: 30px;
+}
+
+/* Ejercicio 3 */
+#ejercicio3 .contenedor-absoluto {
+  background-color: #f9d5e5;
+  height: 150px;
+  margin: 20px;
+  position: relative;
+}
+
+#ejercicio3 .caja-absoluta {
+  background-color: #c06c84;
+  color: white;
+  padding: 10px;
+  position: absolute;
+  top: 50px;
+  left: 50px;
+}
+
+/* Ejercicio 4 */
+#ejercicio4 .contenedor-fijo {
+  background-color: #dcedc1;
+  height: 400px;
+  margin: 20px;
+  padding: 10px;
+}
+
+#ejercicio4 .mensaje-fijo {
+  background-color: #8bc34a;
+  color: white;
+  padding: 10px;
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  border-radius: 5px;
+}
+
+/* Ejercicio 5 */
+#ejercicio5 .contenedor-flotante {
+  background-color: #ffd3b6;
+  margin: 20px;
+  padding: 10px;
+}
+
+.columna {
+  width: 45%;
+  padding: 20px;
+  background-color: #ff8b94;
+  color: white;
+}
+
+.izquierda {
+  float: left;
+  margin-right: 5%;
+}
+
+.derecha {
+  float: left;
+}
+
+.clear {
+  clear: both;
+}
+
+/* Ejercicio 6 */
+#ejercicio6 .contenedor-scroll {
+  background-color: #b2ebf2;
+  height: 200px;
+  width: 90%;
+  margin: 20px auto;
+  padding: 10px;
+  overflow: auto;
+  border: 2px solid #00bcd4;
+}
+
+/* Ejercicio 7 */
+#ejercicio7 {
+  margin-top: 80px;
+}
+
+.header-fijo {
+  background-color: #3f51b5;
+  color: white;
+  padding: 15px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.contenedor-combinado {
+  background-color: #f5f5f5;
+  width: 80%;
+  margin: 0 auto;
+  min-height: 300px;
+  position: relative;
+  padding-top: 60px;
+}
+
+.menu-flotante {
+  background-color: #ff5722;
+  color: white;
+  width: 20%;
+  float: left;
+  padding: 20px;
+}
+
+.contenido-relativo {
+  background-color: #e0e0e0;
+  margin-left: 22%;
+  padding: 20px;
+  position: relative;
+}
+
+.footer-absoluto {
+  background-color: #607d8b;
+  color: white;
+  padding: 10px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
