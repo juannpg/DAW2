@@ -76,3 +76,6 @@ slot11.innerHTML = `OVNI: ${comprobarMayusMinus(
 
 const textoUsuario = prompt("ej5 mayusculas minusculas: Introduce una cadena");
 slot12.innerHTML = `${textoUsuario}: ${comprobarMayusMinus(textoUsuario)}`;
+
+// apellido_nombre_2-13_Ejercicios
+// apellido_nombre_2-13_Ejercicios Ampliación
