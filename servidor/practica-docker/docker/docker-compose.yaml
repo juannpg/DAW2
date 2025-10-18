@@ -1,0 +1,31 @@
+services:
+  web:
+    build: ./web
+    ports:
+      - "8100:80"
+    volumes:
+      - ./../app:/var/www/html
+    hostname: web
+    container_name: web
+  mysql:
+    image: mysql
+    ports:
+      - "23306:3306"
+    environment:
+      - MYSQL_USER=alumno
+      - MYSQL_PASSWORD=alumno
+      - MYSQL_ROOT_PASSWORD=rootpass
+      - MYSQL_DATABASE=instituto
+    volumes:
+      - mysql:/var/lib/mysql
+  phpmyadmin:
+    image: phpmyadmin
+    ports:
+      - "8101:80"
+    environment:
+      - PMA_HOST=mysql
+      - PMA_ARBITRARY=1
+    depends_on:
+      - mysql
+volumes:
+  mysql:
