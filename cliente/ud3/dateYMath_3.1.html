@@ -1,0 +1,47 @@
+Caso a: con numeros:
+<script>
+  let f1 = new Date();
+  document.write(
+    f1.getDate() + "/" + (f1.getMonth() + 1) + "/" + f1.getFullYear() + "<br>"
+  );
+</script>
+Caso b: con los nombres:
+<script>
+  let meses = new Array(
+    "Enero",
+    "Febrero",
+    "Marzo",
+    "Abril",
+    "Mayo",
+    "Junio",
+    "Julio",
+    "Agosto",
+    "Septiembre",
+    "Octubre",
+    "Noviembre",
+    "Diciembre"
+  );
+  let f2 = new Date();
+  document.write(
+    f2.getDate() +
+      " de " +
+      meses[f2.getMonth()] +
+      " de " +
+      f2.getFullYear() +
+      "<br>"
+  );
+</script>
+Caso c: Dia de la semana:
+<script>
+  let diasSemana = new Array(
+    "Domingo",
+    "Lunes",
+    "Martes",
+    "Miércoles",
+    "Jueves",
+    "Viernes",
+    "Sábado"
+  );
+  let f3 = new Date();
+  document.write(diasSemana[f3.getDay()] + "<br>");
+</script>
