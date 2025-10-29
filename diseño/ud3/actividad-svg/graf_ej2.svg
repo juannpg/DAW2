@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="500" height="400" xmlns="http://www.w3.org/2000/svg">
+
+  <!-- c) Rectángulo de fondo -->
+  <rect 
+    x="0" y="0"
+    width="500" height="400"
+    fill="#e0f7fa" />
+
+  <!-- f) Círculo -->
+  <circle 
+    cx="250" cy="200" r="80"
+    fill="#ffcc80"
+    stroke="#fb8c00"
+    stroke-width="4" />
+
+  <!-- i) Rectángulo más pequeño dentro del círculo -->
+  <rect 
+    x="210" y="160"
+    width="80" height="80"
+    fill="#4db6ac"
+    stroke="#00695c"
+    stroke-width="3" />
+
+  <!-- l) Texto -->
+  <text 
+    x="170" y="60"
+    font-family="Arial"
+    font-size="28"
+    fill="#37474f">
+    ¡Hola, SVG!
+  </text>
+
+  <!-- q) Línea adicional -->
+  <line 
+    x1="50" y1="350"
+    x2="450" y2="350"
+    stroke="#1e88e5"
+    stroke-width="5" />
+
+  <!-- q) Polígono adicional -->
+  <polygon 
+    points="250,100 270,140 230,140"
+    fill="#f06292"
+    stroke="#880e4f"
+    stroke-width="2" />
+
+</svg>
