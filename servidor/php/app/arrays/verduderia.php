@@ -2,13 +2,13 @@
   $productos = [
       'lechuga' => ['unidades' => 200,
                     'precio' => 0.90],
-      'tomates' =>['unidades' => 2000,
+      'tomates' => ['unidades' => 2000,
                   'precio' => 2.15],
-      'cebollas' =>['unidades' => 3200,
+      'cebollas' => ['unidades' => 3200,
                     'precio' => 0.49],
-      'fresas' =>['unidades' => 4800,
+      'fresas' => ['unidades' => 4800,
                   'precio' => 4.50],
-      'manzanas' =>['unidades' => 2500,
+      'manzanas' => ['unidades' => 2500,
                     'precio' => 2.10],
   ];
 
@@ -36,11 +36,13 @@
     return $html;
   };
 
-  $mostrarInventario = function(array $productos): string {
-    foreach ($productos as $p => $props) {
-      if (isset($_PSOT["cantidad_$p"])) {
+  $mostrarInventario = function() use ($productos): string {
+    $html = "";
+    
+    foreach ($productos as $p => &$props) {
+      if (isset($_POST["cantidad_$p"]) && $_POST["cantidad_$p"] > 0) {
         $cantidad = $_POST["cantidad_$p"];
-        $props['unidades'] -= $cantidad;
+        $props['unidades'] = (int) $props['unidades'] - (int) $cantidad;
       } 
     }
 
@@ -53,7 +55,39 @@
         </div>
       ";
     }
-  }
+
+    return $html;
+  };
+
+  $mostrarFactura = function() use ($productos): string {
+    $html = "<h1>-----------FACTURA------------- </h1>";
+    $total = 0;
+
+    foreach ($productos as $p => &$props) {
+      if (isset($_POST["cantidad_$p"]) && $_POST["cantidad_$p"] > 0) {
+        $cantidad = $_POST["cantidad_$p"];
+        $precio = (int) $cantidad * $props["precio"];
+        $total += $precio;
+
+        $html .= "
+          <div>
+            <h2>$p</h2>
+            <p>Unidades compradas: $cantidad</p>
+            <p>Precio: $precio €</p>
+          </div>
+        ";
+      } 
+    }
+
+    $html .= "
+      <h3>total: $total €</h3>
+    ";
+
+    $html .= "<a href=\"verduderia.php\">Volver</a>"; 
+
+    return $html;
+  };
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -65,8 +99,8 @@
 <body>
   <?php
     if (isset($_POST['submit'])) {
-      $mostrarInventario($productos);
-      // $mostrarFactura($productos);
+      echo $mostrarInventario();
+      echo $mostrarFactura();
     } else {
       echo $mostrarFormulario($productos);
     }
