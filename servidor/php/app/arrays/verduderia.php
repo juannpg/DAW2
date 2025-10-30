@@ -40,9 +40,8 @@
     $html = "";
     
     foreach ($productos as $p => &$props) {
-      if (isset($_POST["cantidad_$p"]) && $_POST["cantidad_$p"] > 0) {
-        $cantidad = $_POST["cantidad_$p"];
-        $props['unidades'] = (int) $props['unidades'] - (int) $cantidad;
+      if (isset($_POST["cantidad_$p"]) && $_POST["cantidad_$p"] > 0 && $_POST["cantidad_$p"] <= $props['unidades']) {
+        $props['unidades'] = (int) $props['unidades'] - (int) $_POST["cantidad_$p"];
       } 
     }
 
@@ -64,7 +63,7 @@
     $total = 0;
 
     foreach ($productos as $p => $props) {
-      if (isset($_POST["cantidad_$p"]) && $_POST["cantidad_$p"] > 0) {
+      if (isset($_POST["cantidad_$p"]) && $_POST["cantidad_$p"] > 0 && $_POST["cantidad_$p"] <= $props['unidades']) {
         $cantidad = $_POST["cantidad_$p"];
         $precio = (int) $cantidad * $props["precio"];
         $total += $precio;
