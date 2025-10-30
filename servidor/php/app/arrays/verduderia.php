@@ -63,7 +63,7 @@
     $html = "<h1>-----------FACTURA------------- </h1>";
     $total = 0;
 
-    foreach ($productos as $p => &$props) {
+    foreach ($productos as $p => $props) {
       if (isset($_POST["cantidad_$p"]) && $_POST["cantidad_$p"] > 0) {
         $cantidad = $_POST["cantidad_$p"];
         $precio = (int) $cantidad * $props["precio"];
