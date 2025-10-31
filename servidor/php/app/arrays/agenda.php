@@ -8,6 +8,8 @@
   $botonEliminarTodos = $_POST["eliminarTodos"] ?? null;
   $botonSubmit = $_POST["submit"] ?? null;
 
+  $disabled = ($datos === null || empty($datos)) ? "disabled" : ""; 
+  
   if (isset($botonEliminarTodos) && isset($datos)) {
     foreach ($datos as $nombre => $_) {
       unset($datos[$nombre]);
@@ -54,13 +56,15 @@
   <form action="agenda.php" method="POST">
     <h1>Agenda</h1>
     <input type="text" name="nombre" id="nombre" placeholder="nombre">
-    <input type="text" name="numero" id="numero" placeholder="numero">
+    <input type="number" name="numero" id="numero" placeholder="numero">
     <?php
       echo $mostrarDatos();
       echo "<p style=\"color: red;\">$textoError</p>";
     ?>
     <button type="submit" name="submit" value="submit">Agregar</button>
-    <button name="eliminarTodos" value="eliminarTodos">Eliminar todos los contactos</button>
+    <?php
+      echo "<button name=\"eliminarTodos\" value=\"eliminarTodos\" $disabled>Eliminar todos los contactos</button>"
+    ?>
   </form>
 </body>
 </html>
