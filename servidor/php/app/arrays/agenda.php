@@ -1,47 +1,48 @@
 <?php
-  $datos = $_POST["datos"] ?? null;
+  $datos = $_POST["datos"] ?? [];
   $nombrePost = $_POST["nombre"] ?? "";
   $numeroPost = $_POST["numero"] ?? "";
-
   $textoError = "";
-
   $botonEliminarTodos = $_POST["eliminarTodos"] ?? null;
   $botonSubmit = $_POST["submit"] ?? null;
 
-  $disabled = ($datos === null || empty($datos)) ? "disabled" : ""; 
-  
-  if (isset($botonEliminarTodos) && isset($datos)) {
-    foreach ($datos as $nombre => $_) {
-      unset($datos[$nombre]);
+  $agregarNumero = function() use (&$datos, $nombrePost, $numeroPost, &$textoError): void {
+    if ($nombrePost === "") {
+      $textoError .= "<br />Debes introducir un nombre";
+      return;
     }
-  }
 
-  if (isset($botonSubmit)) {
-    if ($nombrePost !== "" && $numeroPost !== "") {
-      $datos[$nombrePost] = $numeroPost;
-    } else if ($nombrePost !== "" && $numeroPost === "") {
+    if ($numeroPost === "") {
       if (isset($datos[$nombrePost])) {
         unset($datos[$nombrePost]);
-      } else {
-        $textoError .= "<br />debes introducir un numero para el nuevo contacto $nombrePost<br />";
+        return;
       }
-    } else {
-      $textoError .= "<br />Debes introducir un nombre";
+
+      $textoError .= "<br />Debes introducir un número para el nuevo contacto $nombrePost<br />";
+      return;
     }
+
+    $datos[$nombrePost] = $numeroPost;
+  };
+  
+  if ($botonEliminarTodos) {
+    $datos = [];
+  }
+
+  if ($botonSubmit) {
+    $agregarNumero();
   }
 
   $mostrarDatos = function() use ($datos): string {
     $html = "";
-    
-    if (isset($datos)) {
+    if (!empty($datos)) {
       foreach ($datos as $nombre => $numero) {
-        $html .= "<input type=\"hidden\" name=\"datos[$nombre]\" value=\"$numero\" />";
+        $html .= "<input type='hidden' name='datos[$nombre]' value='$numero' />";
         $html .= "<h2>$nombre - $numero</h2>";
       }
     } else {
-      $html .= "<br />agenda vacia";
+      $html .= "<br />agenda vacía";
     }
-      
     return $html;
   };
 ?>
@@ -49,22 +50,21 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>agenda</title>
 </head>
 <body>
   <form action="agenda.php" method="POST">
     <h1>Agenda</h1>
-    <input type="text" name="nombre" id="nombre" placeholder="nombre">
-    <input type="number" name="numero" id="numero" placeholder="numero">
+    <input type="text" name="nombre" placeholder="nombre">
+    <input type="number" name="numero" placeholder="numero">
+
     <?php
       echo $mostrarDatos();
-      echo "<p style=\"color: red;\">$textoError</p>";
+      echo "<p style='color:red;'>$textoError</p>";
     ?>
+
     <button type="submit" name="submit" value="submit">Agregar</button>
-    <?php
-      echo "<button name=\"eliminarTodos\" value=\"eliminarTodos\" $disabled>Eliminar todos los contactos</button>"
-    ?>
+    <button name="eliminarTodos" value="eliminarTodos" <?= empty($datos) ? "disabled" : "" ?>>Eliminar todos los contactos</button>
   </form>
 </body>
 </html>
