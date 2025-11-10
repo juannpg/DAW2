@@ -1,5 +1,6 @@
 <?php
-require_once "./Racional.php";
+$carga = fn($clase) => require_once "./$clase.php";
+spl_autoload_register($carga);
 
 $entrada1 = $_POST["racional1"] ?? "";
 $entrada2 = $_POST["racional2"] ?? "";
