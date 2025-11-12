@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form name="formulario">
+        <textarea name="mitexto" placeholder="Introduce una frase" cols="30" rows="5"></textarea>
+        <br>
+        <input type="button" value="clickear" onclick="pulsar()"></input>
+    </form>
+    <div id="palabras"></div>
+    <div id="calificaciones"></div>
+<script>
+    /* Para el div palabras: 
+- Calcula y muestra el numero de palabras que están escritas en el textarea
+- Muestra la ultima y la primera palabra del textarea
+*/
+
+
+/* Para el div calificaciones: 
+Dado el siguiente array de notas de clase en la 1ª Evaluación. 
+var notas = new Array(4.5, 4, 6, 1, 7.5, 10, 5.25, 4.5, 2, 1, 8,7.5, 1, 7.5, 8);
+- Sacar el numero de alumnos aprobados
+- Dado este array, sacar por pantalla todas las notas que no están repetidas
+- Crea una funcion para comprobar las notas que estan por debajo de 5. Llama a esta función para sacar las notas pares de los alumnos que han suspendido
+- Sacar las notas impares de los alumnos que han sacado al menos un 7
+- Elimina del array las notas por debajo de 5
+- Crea una función aleatoria que calcule numeros entre 5 y 10 sin decimales
+- Llama a esta funcion aleatoria para rellenar el array, respetando las notas que no han sido eliminadas. 
+- Muestra por pantalla el array con los nuevos elementos ordenandos de mayor a menor.
+
+NOTA1: Emplea siempre que se pueda metodos y propiedades del objeto Array
+NOTA2: Emplea if, for, for-in, for-of, do-while, while... */
+  const textarea = document.getElementsByName("mitexto")[0];
+  const divPalabras = document.getElementById("palabras");
+  const divCalificaciones = document.getElementById("calificaciones");
+
+  const contarPalabras = (texto) => {
+    if (texto === "" || texto.trim() === "") return { numPalabras: 0, primeraPalabra: "", ultimaPalabra: "" };
+    
+    let palabras = texto.trim().split(" ");
+    for (let i = palabras.length - 1; i >= 0; i--) {
+      if (palabras[i] < 5) {
+        palabras.splice(i, 1);
+      }
+    }
+    const numPalabras = palabras.length;
+    const primeraPalabra = palabras[0];
+    const ultimaPalabra = palabras[palabras.length - 1];
+    return { numPalabras, primeraPalabra, ultimaPalabra };
+  }
+
+  var notas = new Array(4.5, 4, 6, 1, 7.5, 10, 5.25, 4.5, 2, 1, 8,7.5, 1, 7.5, 8);
+
+  // - Sacar el numero de alumnos aprobados
+  const contarAlumnosAprobados = (notas) => {
+    let cuenta = 0;
+    notas.forEach(nota => {
+      if (nota >= 5) {
+        cuenta++;
+      }
+    });
+
+    return cuenta;
+  }
+  
+  // - Dado este array, sacar por pantalla todas las notas que no están repetidas
+  const notasNoRepetidas = (notas) => {
+    let notasNoRepetidas = [];
+    notas.forEach(nota => {
+      if (!notasNoRepetidas.includes(nota)) {
+        notasNoRepetidas.push(nota);
+      }
+    });
+
+    return notasNoRepetidas;
+  }
+
+  // - Crea una funcion para comprobar las notas que estan por debajo de 5. Llama a esta función para sacar las notas pares de los alumnos que han suspendido
+  const notasSuspensasPares = (notas) => {
+    let notasSuspensasPares = [];
+    notas.forEach(nota => {
+      if (nota < 5 && nota % 2 == 0) {
+        notasSuspensasPares.push(nota);
+      }
+    });
+
+    return notasSuspensasPares;
+  }
+
+  // - Sacar las notas impares de los alumnos que han sacado al menos un 7
+  const notasImparesMasDeSiete = (notas) => {
+    let imparesAlMenosSiete = [];
+    notas.forEach(nota => {
+      if (nota >= 7 && nota % 2 != 0) {
+        imparesAlMenosSiete.push(nota);
+      }
+    });
+
+    return imparesAlMenosSiete;
+  }
+
+  // - Elimina del array las notas por debajo de 5
+  const eliminarDelArrayNotasSuspensas = () => {
+    for (let i = notas.length - 1; i >= 0; i--) {
+      if (notas[i] < 5) {
+        notas.splice(i, 1);
+      }
+    }
+  }
+
+  // - Crea una función aleatoria que calcule numeros entre 5 y 10 sin decimales
+  const aleatorio = () => {
+    return Math.floor(Math.random() * (11 - 5)) + 5;
+  }
+
+  // - Llama a esta funcion aleatoria para rellenar el array, respetando las notas que no han sido eliminadas. 
+  const rellenarAleatorios = () => {
+    const longitudOriginal = notas.length;
+    for (let i = 0; i < longitudOriginal; i++) {
+      notas.push(aleatorio());
+    }
+  }
+  
+  //- Muestra por pantalla el array con los nuevos elementos ordenandos de mayor a menor.
+  const ordenarDeMayorAMenor = (notas) => {
+    return notas.sort((a, b) => b - a);
+  }
+
+  const pulsar = () => {
+    const texto = textarea.value;
+    const { numPalabras, primeraPalabra, ultimaPalabra } = contarPalabras(texto);
+    divPalabras.innerHTML = `Número de palabras: ${numPalabras}<br>Primera palabra: ${primeraPalabra}<br>Última palabra: ${ultimaPalabra}`;
+    
+    const numeroAlumnosAprobados = contarAlumnosAprobados(notas);
+    divCalificaciones.innerHTML += `<p>Numero Alumnos Aprobados: ${numeroAlumnosAprobados}</p>`;
+    
+    const noRepetidas = notasNoRepetidas(notas);
+    divCalificaciones.innerHTML += `<p>Notas no repetidas:</p>`;
+    noRepetidas.forEach(nota => {
+      divCalificaciones.innerHTML += nota + " ";
+    })
+
+    const suspensasPares = notasSuspensasPares(notas);
+    divCalificaciones.innerHTML += `<p>Notas suspensas pares:</p>`;
+    suspensasPares.forEach(nota => {
+      divCalificaciones.innerHTML += nota + " ";
+    })
+
+    const imparesMasDeSiete = notasImparesMasDeSiete(notas);
+    divCalificaciones.innerHTML += `<p>Notas impares que al menos son 7:</p>`;
+    imparesMasDeSiete.forEach(nota => {
+      divCalificaciones.innerHTML += nota + " ";
+    })
+
+    eliminarDelArrayNotasSuspensas();
+    divCalificaciones.innerHTML += `<p>Array sin suspensos</p>`;
+    notas.forEach(nota => {
+      divCalificaciones.innerHTML += nota + " ";
+    })
+
+    rellenarAleatorios();
+    const ordenadoDeMayorAMenor = ordenarDeMayorAMenor(notas);
+    divCalificaciones.innerHTML += `<p>Aarray rellenado con aleatorios ordenado de mayor a menor</p>`;
+    ordenadoDeMayorAMenor.forEach(nota => {
+      divCalificaciones.innerHTML += nota + " ";
+    })
+  }
+</script>
+</body>
+</html>
