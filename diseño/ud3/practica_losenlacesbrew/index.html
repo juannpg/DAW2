@@ -1,9 +1,207 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>tarea 0301</title>
+    <meta
+      name="description"
+      content="LosEnlaces Brew - Café sostenible de calidad premium"
+    />
+    <title>LosEnlaces Brew - Café Sostenible</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
   </head>
-  <body></body>
+  <body>
+    <header class="header">
+      <div class="container">
+        <div class="nav-wrapper">
+          <div class="logo">
+            <img
+              src="imagenes_originales/logo.png"
+              alt="LosEnlaces Brew Logo"
+              class="logo-img"
+            />
+          </div>
+          <nav class="nav">
+            <a href="#inicio" class="nav-link">Inicio</a>
+            <a href="#nosotros" class="nav-link">Nosotros</a>
+            <a href="#productos" class="nav-link">Productos</a>
+            <a href="#contacto" class="nav-link">Contacto</a>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <section id="inicio" class="hero">
+      <div class="hero-image">
+        <img
+          src="imagenes_originales/banner_principal.png"
+          alt="Café sostenible premium"
+          class="banner-img"
+        />
+      </div>
+      <div class="hero-overlay">
+        <div class="container">
+          <div class="hero-content">
+            <h1 class="hero-title">Café Sostenible con Propósito</h1>
+            <p class="hero-subtitle">
+              De la plantación a tu taza, cultivando un futuro mejor
+            </p>
+            <div class="hero-buttons">
+              <a href="#productos" class="btn btn-primary"
+                >Descubre Nuestros Cafés</a
+              >
+              <a href="#nosotros" class="btn btn-secondary">Nuestra Historia</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="nosotros" class="about">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Comprometidos con la Sostenibilidad</h2>
+          <p class="section-subtitle">
+            Cada taza cuenta una historia de respeto por la tierra y las
+            personas
+          </p>
+        </div>
+        <div class="about-content">
+          <div class="about-text">
+            <h3>Nuestra Filosofía</h3>
+            <p>
+              En LosEnlaces Brew creemos que el mejor café es aquel que respeta
+              el medio ambiente y apoya a las comunidades cafeteras. Trabajamos
+              directamente con agricultores que practican métodos de cultivo
+              sostenibles y comercio justo.
+            </p>
+            <p>
+              Cada grano es seleccionado cuidadosamente para ofrecerte una
+              experiencia única, mientras contribuimos a un planeta más verde.
+            </p>
+            <div class="values-grid">
+              <div class="value-item">
+                <span class="value-icon">🌱</span>
+                <h4>100% Sostenible</h4>
+              </div>
+              <div class="value-item">
+                <span class="value-icon">🤝</span>
+                <h4>Comercio Justo</h4>
+              </div>
+              <div class="value-item">
+                <span class="value-icon">☕</span>
+                <h4>Calidad Premium</h4>
+              </div>
+            </div>
+          </div>
+          <div class="about-image">
+            <img
+              src="animaciones/taza_cafe.gif"
+              alt="Taza de café llenándose"
+              class="coffee-animation"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="productos" class="products">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Nuestros Cafés</h2>
+          <p class="section-subtitle">Selección premium de origen único</p>
+        </div>
+        <div class="products-grid">
+          <div class="product-card">
+            <div class="product-image">
+              <img
+                src="imagenes_exportadas/producto_1.png"
+                alt="Café Colombia Premium"
+                class="product-img"
+              />
+            </div>
+            <div class="product-info">
+              <h3 class="product-name">Colombia Premium</h3>
+              <p class="product-description">
+                Notas de chocolate y caramelo con un toque cítrico. Tostado
+                medio.
+              </p>
+              <span class="product-price">12,90€</span>
+            </div>
+          </div>
+          <div class="product-card">
+            <div class="product-image">
+              <img
+                src="imagenes_exportadas/producto_2.webp"
+                alt="Café Etiopía Natural"
+                class="product-img"
+              />
+            </div>
+            <div class="product-info">
+              <h3 class="product-name">Etiopía Natural</h3>
+              <p class="product-description">
+                Intenso aroma floral con toques afrutados. Tostado ligero.
+              </p>
+              <span class="product-price">14,90€</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="impact">
+      <div class="container">
+        <div class="impact-content">
+          <h2>Nuestro Impacto</h2>
+          <div class="stats-grid">
+            <div class="stat">
+              <span class="stat-number">500+</span>
+              <span class="stat-label">Agricultores Apoyados</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number">15</span>
+              <span class="stat-label">Países de Origen</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number">100%</span>
+              <span class="stat-label">Carbono Neutral</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer id="contacto" class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h4>LosEnlaces Brew</h4>
+            <p>Café sostenible que conecta personas, culturas y sabores.</p>
+          </div>
+          <div class="footer-section">
+            <h4>Contacto</h4>
+            <p>Email: hola@losenlacesbrew.com</p>
+            <p>Tel: +34 900 123 456</p>
+          </div>
+          <div class="footer-section">
+            <h4>Síguenos</h4>
+            <div class="social-links">
+              <a href="#" class="social-link">Instagram</a>
+              <a href="#" class="social-link">Facebook</a>
+              <a href="#" class="social-link">Twitter</a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2025 LosEnlaces Brew. Todos los derechos reservados.</p>
+        </div>
+      </div>
+    </footer>
+
+    <div class="bg-decoration"></div>
+  </body>
 </html>
