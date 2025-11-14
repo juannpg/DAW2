@@ -5,6 +5,13 @@
   use Racional;
 
   class OperacionRacional extends Operacion {
+    public function __construct(string $operacion) {
+      parent::__construct($operacion);
+
+      $this->operando1 = new Racional($this->operando1);
+      $this->operando2 = new Racional($this->operando2);
+    }
+    
     public function operar(): Racional | string {
       return match ($this->operador) {
         '+' => Racional::sumar($this->operando1, $this->operando2),

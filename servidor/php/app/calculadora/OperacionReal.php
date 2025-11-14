@@ -3,6 +3,13 @@
   spl_autoload_register($_);
 
   class OperacionReal extends Operacion {
+    public function __construct(string $operacion) {
+      parent::__construct($operacion);
+
+      $this->operando1 = (float) $this->operando1;
+      $this->operando2 = (float) $this->operando2;
+    }
+    
     public function operar(): int | float | string {
       return match ($this->operador) {
         '+' => $this->operando1 + $this->operando2,
