@@ -6,5 +6,5 @@ RUN echo "</Directory>" >> /etc/apache2/sites-enabled/000-default.conf
 
 RUN pecl install xdebug
 RUN docker-php-ext-enable xdebug
-
+COPY --from=composer/composer:latest-bin /composer /usr/bin/composer
 EXPOSE 80
