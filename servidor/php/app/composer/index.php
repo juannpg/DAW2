@@ -1,6 +1,8 @@
 <?php
 require './vendor/autoload.php';
-$a = new A();
+use Controller\Admin\A as Services_A;
+
+$a = new Services_A();
 $b = new B();
 $c = new C();
 $d = new D();

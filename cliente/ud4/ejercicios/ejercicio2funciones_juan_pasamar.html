@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Validación Teléfono Fijo</title>
+  </head>
+  <body>
+    <h1>Validación de Teléfono Fijo</h1>
+    <input type="text" id="telefono1" placeholder="Ej: 912345678" />
+    <input type="text" id="telefono2" placeholder="Ej: 856789012" />
+    <button onclick="validar()">Validar</button>
+    <p id="resultado"></p>
+
+    <script>
+      function validarTelefono() {
+        let resultados = [];
+
+        for (var i = 0; i < arguments.length; i++) {
+          let telefono = arguments[i];
+
+          if (telefono.length !== 9) {
+            resultados.push(
+              `Error en el teléfono ${i}: El teléfono debe tener 9 números`
+            );
+            continue;
+          }
+
+          if (isNaN(telefono)) {
+            resultados.push(
+              `Error en el teléfono ${i}: El teléfono debe contener solo números`
+            );
+            continue;
+          }
+
+          var primerDigito = telefono.charAt(0);
+          if (primerDigito !== "8" && primerDigito !== "9") {
+            resultados.push(
+              `Error en el teléfono ${i}: El teléfono debe empezar por 8 o 9`
+            );
+            continue;
+          }
+
+          if (parseInt(telefono) < 0) {
+            resultados.push(
+              `Error en el teléfono ${i}: El teléfono no puede ser negativo`
+            );
+            continue;
+          }
+
+          var segundoDigito = telefono.charAt(1);
+          var tercerDigito = telefono.charAt(2);
+          if (segundoDigito === "0" && tercerDigito === "0") {
+            resultados.push(
+              `Error en el teléfono ${i}: No puede haber dos ceros en la segunda y tercera posición`
+            );
+            continue;
+          }
+
+          resultados.push(`Teléfono ${i} válido`);
+        }
+        return resultados;
+      }
+
+      function validar() {
+        var telefono1 = document.getElementById("telefono1").value;
+        var telefono2 = document.getElementById("telefono2").value;
+        var resultados = validarTelefono(telefono1, telefono2);
+        document.getElementById("resultado").innerHTML = "";
+        resultados.forEach((element) => {
+          document.getElementById("resultado").innerHTML +=
+            "<p>" + element + "</p><br>";
+        });
+      }
+    </script>
+  </body>
+</html>

@@ -1,5 +1,7 @@
 <?php
 
+namespace Controller\Admin;
+
 class A
 {
     public function __toString(){

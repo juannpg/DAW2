@@ -18,6 +18,8 @@ services:
       - MYSQL_DATABASE=alumno
     volumes:
       - mysql:/var/lib/mysql
+      - ./datos.sql:/docker-entrypoint-initdb.d/datos.sql
+      - ./mysql.cnf:/etc/mysql/conf.d/mysql.cnf
   phpmyadmin:
     image: phpmyadmin
     ports:

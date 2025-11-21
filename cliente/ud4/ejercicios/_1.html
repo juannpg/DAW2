@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form
+      style="display: flex; flex-direction: column; width: 300px; gap: 2px"
+      onsubmit="calcularNomina(event)"
+    >
+      <input type="number" id="bruto" placeholder="Salario bruto anual" />
+      <input type="number" id="ret" placeholder="Retención (%)" />
+      <input type="number" id="pagas" placeholder="Número de pagas" />
+      <button type="submit">Calcular Nómina</button>
+      <p id="neto"></p>
+    </form>
+
+    <script>
+      function calcularNomina(e) {
+        e.preventDefault();
+
+        const bruto = parseFloat(document.getElementById("bruto").value);
+        const retencion = parseFloat(document.getElementById("ret").value);
+        const pagas = parseInt(document.getElementById("pagas").value);
+
+        const netoAnual = bruto * (1 - retencion / 100);
+        const netoMensual = netoAnual / pagas;
+
+        document.getElementById("neto").innerText = `mensual: ${netoMensual} €`;
+      }
+    </script>
+  </body>
+</html>

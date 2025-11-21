@@ -2,6 +2,7 @@
   "autoload": {
     "classmap": [
       "./class"
-    ]
+    ],
+    "psr-4": {}
   }
 }

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Validación Matrícula</title>
+  </head>
+  <body>
+    <h1>Validación de Matrícula</h1>
+    <input type="text" id="matricula" placeholder="Ej: 12345P" />
+    <input type="text" id="matricula2" placeholder="Ej: 12345P" />
+    <button onclick="validar()">Validar</button>
+    <p id="resultado"></p>
+
+    <script>
+      function validarMatricula() {
+        let resultados = [];
+
+        for (var i = 0; i < arguments.length; i++) {
+          let matricula = arguments[i];
+          if (matricula.length !== 6) {
+            resultados.push(
+              `Error en la matricula ${i}: La matrícula debe tener 6 caracteres (5 números y 1 letra)`
+            );
+            continue;
+          }
+
+          var numeros = matricula.substring(0, 5);
+          var letra = matricula.substring(5, 6).toUpperCase();
+
+          if (isNaN(numeros)) {
+            resultados.push(
+              `Error en la matricula ${i}: Los primeros 5 caracteres deben ser números`
+            );
+            continue;
+          }
+
+          var primerNumero = parseInt(numeros.charAt(0));
+          if (primerNumero % 2 === 0) {
+            resultados.push(
+              `Error en la matricula ${i}: El primer número debe ser impar`
+            );
+            continue;
+          }
+
+          if (letra !== "P" && letra !== "S") {
+            resultados.push(
+              `Error en la matricula ${i}: La letra debe ser P o S`
+            );
+            continue;
+          }
+
+          resultados.push(`Matrícula ${i} válida`);
+        }
+        return resultados;
+      }
+
+      function validar() {
+        var matricula = document.getElementById("matricula").value;
+        var matricula2 = document.getElementById("matricula2").value;
+        var resultados = validarMatricula(matricula, matricula2);
+        resultados.forEach((element) => {
+          document.getElementById("resultado").innerHTML +=
+            "<p>" + element + "</p><br>";
+        });
+      }
+    </script>
+  </body>
+</html>
