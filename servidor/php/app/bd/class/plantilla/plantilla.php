@@ -9,15 +9,6 @@
 
       $html = "<table style='border-collapse: collapse; width: 100%; font-family: Arial, sans-serif; box-shadow: 0 2px 8px rgba(0,0,0,0.1);'>";
       
-      // Encabezados (primera fila)
-      $html .= "<thead><tr style='background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;'>";
-      $primeraFila = array_shift($array);
-      foreach ($primeraFila as $columna) {
-        $html .= "<th style='padding: 12px 15px; text-align: left; font-weight: 600;'>" . htmlspecialchars($columna ?? '') . "</th>";
-      }
-      $html .= "</tr></thead>";
-      
-      // Datos
       $html .= "<tbody>";
       $isEven = false;
       foreach ($array as $fila) {
