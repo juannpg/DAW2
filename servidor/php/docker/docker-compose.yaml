@@ -19,7 +19,7 @@ services:
     volumes:
       - mysql:/var/lib/mysql
       - ./datos.sql:/docker-entrypoint-initdb.d/datos.sql
-      - ./mysql.cnf:/etc/mysql/conf.d/mysql.cnf
+      - ./mysql.cnf:/etc/mysql/conf.d/my.cnf
   phpmyadmin:
     image: phpmyadmin
     ports:

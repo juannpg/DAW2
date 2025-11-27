@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      class Persona {
+        nombre;
+        apellido;
+        edad;
+        email;
+
+        constructor(nombre, apellido, edad, email) {
+          this.nombre = nombre;
+          this.apellido = apellido;
+          this.edad = edad;
+          this.email = email;
+        }
+
+        getEdad() {
+          return this.edad;
+        }
+      }
+
+      function calcularEdadMediaPersonas(...personas) {
+        let sumaEdades = 0;
+        for (const persona of personas) {
+          sumaEdades += persona.getEdad();
+        }
+        return sumaEdades / personas.length;
+      }
+
+      const p1 = new Persona(
+        "Roberto",
+        "Martinez",
+        22,
+        "roberto.martinez@tuempresa.com"
+      );
+      const p2 = new Persona(
+        "Antonio",
+        "Lopez",
+        25,
+        "antonio.lopez@tuempresa.com"
+      );
+      const p3 = new Persona(
+        "Javier",
+        "Rodriguez",
+        18,
+        "javier.rodriguez@tuempresa.com"
+      );
+      const p4 = new Persona("Eva", "Teruel", 33, "eva.teruel@tuempresa.com");
+
+      console.log(calcularEdadMediaPersonas(p1, p2, p3, p4));
+    </script>
+  </body>
+</html>

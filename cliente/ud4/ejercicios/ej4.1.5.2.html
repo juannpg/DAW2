@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form onsubmit="login(event)" id="login">
+      <label for="pin">Pin</label>
+      <input type="text" id="pin" />
+      <button type="submit">Enviar</button>
+    </form>
+
+    <div id="banco">
+      <form onsubmit="consultarSaldo(event)">
+        <h2 id="saldo"></h2>
+        <button type="submit">Consultar saldo</button>
+      </form>
+
+      <form onsubmit="retirarDinero(event)">
+        <input
+          type="number"
+          id="dinero"
+          placeholder="Dinero a retirar"
+          title="retirar dinero"
+        />
+        <button type="submit">Retirar dinero</button>
+      </form>
+    </div>
+    <script>
+      const pin = "1234";
+
+      const loginHTML = document.getElementById("login");
+      const bancoHTML = document.getElementById("banco");
+      bancoHTML.style.display = "none";
+
+      const login = (e) => {
+        e.preventDefault();
+        const pinHTML = document.getElementById("pin").value;
+        if (pinHTML === pin) {
+          loginHTML.style.display = "none";
+          bancoHTML.style.display = "block";
+        } else {
+          alert("Pin incorrecto");
+        }
+      };
+
+      let saldo = 10000;
+
+      const consultarSaldo = (e) => {
+        e.preventDefault();
+        document.getElementById("saldo").textContent = "Saldo: " + saldo;
+      };
+
+      const retirarDinero = (e) => {
+        e.preventDefault();
+        const dinero = document.getElementById("dinero").value;
+        saldo -= dinero;
+        document.getElementById("saldo").textContent = "";
+      };
+    </script>
+  </body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "autoload": {
+    "psr-4": {
+      "class\\db\\": "./class/db",
+      "class\\plantilla\\": "./class/plantilla"
+    }
+  },
+  "require": {
+    "vlucas/phpdotenv": "^5.6"
+  }
+}

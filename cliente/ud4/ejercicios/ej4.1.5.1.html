@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>ejercicio</h1>
+
+    <script>
+      function funcion() {
+        console.log(arguments.length);
+        if (arguments.length > 2) {
+          console.log(arguments);
+          const aux = arguments[0];
+          arguments[0] = arguments[2];
+          arguments[2] = aux;
+          console.log(arguments);
+        }
+      }
+
+      const funcion2 = (...props) => {
+        console.log(props.length);
+        if (props.length > 2) {
+          console.log(props);
+          const aux = props[0];
+          props[0] = props[2];
+          props[2] = aux;
+          console.log(props);
+        }
+      };
+
+      funcion2("hola", "adios", "que", "tal");
+    </script>
+  </body>
+</html>
