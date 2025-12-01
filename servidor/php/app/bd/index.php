@@ -10,8 +10,10 @@
   $conexion = DB::getInstance();
   $tablas = $conexion->getAllTables();
   
+  $campos = [];
   $resultado = [];
   if (isset($_POST["submit"])) {
+    $campos = $conexion->getFieldNames($_POST["submit"]);
     $resultado = $conexion->getTableData($_POST["submit"]);
   }
 ?>
@@ -21,6 +23,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gestor de Base de Datos</title>
+  <link rel="stylesheet" href="class/plantilla/styles.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+  <script type="importmap">
+    {
+      "imports": {
+        "sweetalert2": "https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.esm.all.min.js"
+      }
+    }
+  </script>
   <style>
     * {
       margin: 0;
@@ -72,16 +83,19 @@
       transform: translateY(0);
     }
   </style>
+
 </head>
 <body>
   <div class="container">
-    <h1>📊 Gestor de Base de Datos</h1>
+    <h1>Gestor de Base de Datos</h1>
     <form method="post" action="index.php">
       <?php foreach ($tablas as $tabla) { ?>
         <input type="submit" value="<?= $tabla ?>" name="submit" />
       <?php } ?>
     </form>
-    <?php echo Plantilla::crearPlantilla($resultado); ?>
+    <h2>tabla <?= $_POST["submit"] ?? "" ?></h2>
+    <?php echo Plantilla::crearPlantilla($campos, $resultado); ?>
   </div>
+  <script src="./js/modal.js" type="module"></script>
 </body>
 </html>

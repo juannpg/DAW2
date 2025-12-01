@@ -2,6 +2,7 @@
   namespace class\db;
   use mysqli;
   use mysqli_sql_exception;
+  use mysqli_result;
 
   class DB {
     private static DB | null $instancia = null;
@@ -31,28 +32,40 @@
       return self::$instancia;
     }
 
-    public function getAllTables(): array {
-      $tablas = [];
-      $sentencia = "SHOW TABLES;";
-      $respuesta = $this->conexion->query($sentencia);
+    private function iterarFilas(bool | mysqli_result $respuesta, int $indice = -1): array {
       $fila = $respuesta->fetch_row();
+      $campos = [];
       while ($fila) {
-        $tablas[] = $fila[0];
+        $campos[] = $indice === -1 ? $fila : $fila[$indice];
         $fila = $respuesta->fetch_row();
       }
-      return $tablas;
+      return $campos;
+    }
+
+    public function getAllTables(): array {
+      $sentencia = "SHOW TABLES;";
+      $respuesta = $this->conexion->query($sentencia);
+      return $this->iterarFilas($respuesta, 0);
+    }
+
+    public function getFieldNames(string $tabla): array {
+      $sentencia = "SELECT COLUMN_NAME
+        FROM INFORMATION_SCHEMA.COLUMNS
+        WHERE TABLE_NAME = '$tabla'
+        ORDER BY ORDINAL_POSITION;";
+      $respuesta = $this->conexion->query($sentencia);
+      return $this->iterarFilas($respuesta,0);
     }
 
     public function getTableData(string $tabla): array {
       $sentencia = "SELECT * FROM $tabla;";
       $respuesta = $this->conexion->query($sentencia);
-      $fila = $respuesta->fetch_row();
-      $datos = [];
-      while ($fila) {
-        $datos[] = $fila;
-        $fila = $respuesta->fetch_row();
-      }
-      return $datos;
+      return $this->iterarFilas($respuesta);
+    }
+
+    public function deleteField(string $tabla, int $id): bool {
+      $sentencia = "DELETE FROM $tabla WHERE id = $id;";
+      return $this->conexion->query($sentencia);
     }
   }
 ?>
