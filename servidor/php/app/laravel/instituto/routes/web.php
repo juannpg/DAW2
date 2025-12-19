@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AlumnoController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
 
@@ -19,3 +20,8 @@ Route::fallback(function () {
   $ruta = request()->url();
   return "te has perdido gang, $ruta no existe";
 });
+
+Route::get("/alumnos/{id}", AlumnoController::class);
+
+Route::view("about", "about")->name("about");
+Route::view("noticias", "noticias")->name("noticias");
