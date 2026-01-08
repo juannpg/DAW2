@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <img src="src/te vienes a liarla un poco.png" id="imagen" alt="" />
+    <script>
+      const img = document.getElementById("imagen");
+
+      const cambiar = (source) => {
+        img.src = source;
+      };
+
+      img.addEventListener("mouseover", cambiar("src/tic tac tic tac.png"));
+      img.addEventListener(
+        "mouseout",
+        cambiar("src/te vienes a liarla un poco.png")
+      );
+    </script>
+  </body>
+</html>

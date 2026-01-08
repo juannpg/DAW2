@@ -9,12 +9,10 @@
 </head>
 <body>
   <x-layouts.header />
-  <nav>
-    <a href="{{route("about")}}">Volver al About</a>
-    <a href="{{route("noticias")}}">Volver al Noticias</a>
-  </nav>
-  <main>
+  <x-layouts.nav />
+  <main class="h-65">
     {{ $slot  }}
   </main>
+  <x-layouts.footer />
 </body>
 </html>
