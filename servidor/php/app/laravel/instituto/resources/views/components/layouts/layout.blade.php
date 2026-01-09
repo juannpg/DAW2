@@ -10,7 +10,7 @@
 <body>
   <x-layouts.header />
   <x-layouts.nav />
-  <main class="h-65">
+  <main class="h-main bg-main">
     {{ $slot  }}
   </main>
   <x-layouts.footer />
