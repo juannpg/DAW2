@@ -3,6 +3,7 @@
 use App\Http\Controllers\AlumnoController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
+use App\Http\Controllers\SetLanguageController;
 
 Route::get('/', [MainController::class, "index"])->name("main");
 
@@ -25,3 +26,5 @@ Route::view("about", "about")->name("about");
 Route::view("noticias", "noticias")->name("noticias");
 
 require __DIR__.'/auth.php';
+
+Route::get("/lang/{lang}", SetLanguageController::class)->name("setLang");

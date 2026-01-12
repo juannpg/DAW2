@@ -9,11 +9,14 @@
       <button type="submit" class="btn btn-primary cursor-pointer">Logout</button>
     </form>
     @endauth
-    @guest
-    <div class="text-black">
-      <button class="btn"><a href="{{ route("login") }}">Login</a></button>
-      <button class="btn"><a href="{{ route("register") }}">Register</a></button>
+    <div class="flex flex-col gap-2">
+      @guest
+      <div class="text-black">
+        <button class="btn"><a href="{{ route("login") }}">{{__("Login")}}</a></button>
+        <button class="btn"><a href="{{ route("register") }}">{{__("Register")}}</a></button>
+      </div>
+      @endguest
+      <x-lang/>
     </div>
-    @endguest
   </div>
 </header>
