@@ -10,14 +10,15 @@
     <script>
       const img = document.getElementById("imagen");
 
-      const cambiar = (source) => {
+      const handleCambiar = (source) => {
         img.src = source;
       };
 
-      img.addEventListener("mouseover", cambiar("src/tic tac tic tac.png"));
-      img.addEventListener(
-        "mouseout",
-        cambiar("src/te vienes a liarla un poco.png")
+      img.addEventListener("mouseover", () =>
+        handleCambiar("src/tic tac tic tac.png")
+      );
+      img.addEventListener("mouseout", () =>
+        handleCambiar("src/te vienes a liarla un poco.png")
       );
     </script>
   </body>

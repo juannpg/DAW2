@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Librería Online - Tarea 04_01</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  </head>
+  <body>
+    <header>
+      <div class="header-content">
+        <h1>Librería "El Sabio Lector"</h1>
+        <p class="promo-text">Descuento especial del 20% esta semana</p>
+      </div>
+    </header>
+
+    <main class="container">
+      <div class="multimedia-section" style="display: none">
+        <section class="hero-grid">
+          <div class="book-visual">
+            <img
+              id="book-image"
+              src="./images/gatsby.jpeg"
+              alt="Portada del libro destacado: El Gran Gatsby"
+            />
+          </div>
+          <div class="book-info">
+            <span class="badge">Novedad</span>
+            <h2>El Gran Gatsby</h2>
+            <h3 class="author">F. Scott Fitzgerald</h3>
+            <p class="synopsis">
+              Una historia de riqueza, amor y decadencia en la América de los
+              años 20. Sumérgete en el lujo y la tragedia de una era
+              inolvidable.
+            </p>
+
+            <button id="toggle-details-btn" class="btn-outline">
+              Leer sinopsis completa
+            </button>
+            <div id="extra-details" style="display: none">
+              <p>
+                Este libro es considerado un clásico de la literatura
+                estadounidense. Publicado en 1925, explora temas de decadencia,
+                idealismo, resistencia al cambio y excesos sociales.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <hr class="divider" />
+
+        <section class="video-grid">
+          <div class="video-content">
+            <h2>Descubre nuestra librería</h2>
+            <div class="video-wrapper">
+              <video id="promo-video" width="100%">
+                <source
+                  src="https://www.w3schools.com/html/mov_bbb.mp4"
+                  type="video/mp4"
+                />
+                Tu navegador no soporta el elemento video.
+              </video>
+              <div class="custom-controls">
+                <div class="media-controls">
+                  <button
+                    id="play-pause-btn"
+                    class="control-btn"
+                    title="Reproducir/Pausar"
+                  >
+                    ⏯
+                  </button>
+                  <button id="reset-btn" class="control-btn" title="Reiniciar">
+                    ⏮
+                  </button>
+                  <div class="volume-wrapper">
+                    <label for="volume-slider">🔈</label>
+                    <input
+                      type="range"
+                      id="volume-slider"
+                      min="0"
+                      max="1"
+                      step="0.1"
+                      value="1"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="video-description" class="info-box" style="display: none">
+              <p>
+                Este es un video promocional que muestra las novedades de
+                nuestra librería este mes. ¡No te lo pierdas!
+              </p>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <section class="form-section">
+        <div class="form-header">
+          <h2>Realizar Pedido</h2>
+          <p>Completa tus datos para recibir tu ejemplar.</p>
+        </div>
+        <form id="purchase-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Nombre completo</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Ej. Juan Pérez"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="email">Correo Electrónico</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="juan@ejemplo.com"
+                required
+              />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="book-select">Selecciona tu libro</label>
+            <div class="select-wrapper">
+              <select id="book-select" name="book">
+                <option value="">-- Selecciona una opción --</option>
+                <option value="gatsby">El Gran Gatsby - $15.00</option>
+                <option value="1984">1984 - $12.50</option>
+                <option value="quijote">Don Quijote - $18.00</option>
+              </select>
+            </div>
+          </div>
+          <button type="submit" id="buy-btn" class="btn-primary">
+            Confirmar Compra
+          </button>
+        </form>
+        <div id="confirmation-msg" class="hidden"></div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="padre">
+      <button id="hijo">Boton</button>
+    </div>
+    <script>
+      const padre = document.getElementById("padre");
+      const hijo = document.getElementById("hijo");
+
+      padre.addEventListener("click", () => {
+        console.log("padre");
+      });
+
+      hijo.addEventListener("click", () => {
+        console.log("hijo");
+      });
+    </script>
+  </body>
+</html>

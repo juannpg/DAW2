@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 5.2.2.3 - Eventos</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+      }
+      #info-box {
+        border: 2px solid #333;
+        padding: 20px;
+        width: 400px;
+        min-height: 150px;
+        background-color: white;
+        transition: background-color 0.2s;
+      }
+      h3 {
+        margin-top: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="info-box">
+      <h3>Información del Evento</h3>
+      <div id="info-content">Mueve el ratón o pulsa una tecla...</div>
+    </div>
+
+    <script>
+      const infoBox = document.getElementById("info-box");
+      const infoContent = document.getElementById("info-content");
+
+      // Función para mostrar información
+      const muestraInformacion = (mensaje) => {
+        infoContent.innerHTML = mensaje;
+      };
+
+      // Mover el ratón
+      document.addEventListener("mousemove", (e) => {
+        infoBox.style.backgroundColor = "white";
+        const msg = `
+          <strong>Ratón</strong><br>
+          Navegador [${e.clientX}, ${e.clientY}]<br>
+          Página [${e.pageX}, ${e.pageY}]
+        `;
+        muestraInformacion(msg);
+      });
+
+      // Pulsar botón del ratón
+      document.addEventListener("mousedown", (e) => {
+        infoBox.style.backgroundColor = "#FFFFCC";
+        const msg = `
+          <strong>Ratón</strong><br>
+          Botón pulsado: ${e.button}
+        `;
+        muestraInformacion(msg);
+      });
+
+      // Pulsar tecla
+      document.addEventListener("keydown", (e) => {
+        infoBox.style.backgroundColor = "#CCE6FF";
+        const msg = `
+          <strong>Teclado</strong><br>
+          Carácter: ${e.key}<br>
+          Código: ${e.code}
+        `;
+        muestraInformacion(msg);
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div style="display: flex; flex-direction: column; width: 500px">
+      <img src="src/te vienes a liarla un poco.png" id="imagen1" alt="" />
+      <img src="src/tic tac tic tac.png" id="imagen2" alt="" />
+      <h1 id="text"></h1>
+    </div>
+    <script>
+      const img1 = document.getElementById("imagen1");
+      const img2 = document.getElementById("imagen2");
+
+      const p = document.getElementById("text");
+
+      const createListener = (img, text) => {
+        img.addEventListener("mouseover", () => (p.textContent = text));
+        img.addEventListener("mouseout", () => (p.textContent = ""));
+      };
+
+      createListener(img1, "te vienes a liarla un poco?");
+      createListener(img2, "no te metas con los yordle");
+    </script>
+  </body>
+</html>
