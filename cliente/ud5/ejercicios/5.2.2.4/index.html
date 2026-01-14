@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 5.2.2.4 - Zonas de Pantalla</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+      }
+      #info-box {
+        border: 2px solid #333;
+        padding: 20px;
+        width: 400px;
+        min-height: 150px;
+        background-color: white;
+      }
+      h3 {
+        margin-top: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="info-box">
+      <h3>Información del Click</h3>
+      <div id="info-content">
+        Haz clic en cualquier parte de la página para detectar la zona.
+      </div>
+    </div>
+
+    <script>
+      const infoContent = document.getElementById("info-content");
+
+      document.addEventListener("click", (e) => {
+        // Obtener dimensiones de la ventana
+        const width = window.innerWidth;
+        const height = window.innerHeight;
+
+        // Obtener coordenadas del click
+        const x = e.clientX;
+        const y = e.clientY;
+
+        // Calcular puntos medios
+        const midX = width / 2;
+        const midY = height / 2;
+
+        let horizontal = "";
+        let vertical = "";
+
+        // Determinar zona horizontal
+        if (x < midX) {
+          horizontal = "izquierda";
+        } else {
+          horizontal = "derecha";
+        }
+
+        // Determinar zona vertical
+        if (y < midY) {
+          vertical = "arriba";
+        } else {
+          vertical = "abajo";
+        }
+
+        // Mostrar resultado
+        infoContent.innerHTML = `Has pulsado en: <strong>${horizontal} ${vertical}</strong>`;
+      });
+    </script>
+  </body>
+</html>

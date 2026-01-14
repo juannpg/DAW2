@@ -53,7 +53,7 @@ $(document).ready(function () {
   $("#purchase-form").submit(function (event) {
     event.preventDefault();
 
-    var name = $("#name").val();
+    var name = $("#name").val().validate();
     var book = $("#book-select").val();
     var email = $("#email").val();
 

@@ -1,0 +1,52 @@
+1. importa las librerías
+primero tienes que llamar a jquery y luego al plugin de validación. si no lo haces en este orden, no te va a funcionar nada:
+
+HTML
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
+2. crea el formulario
+haz un form normal en tu html. lo único importante es que cada input tenga su atributo name, porque es lo que jquery usa para saber qué está validando:
+
+HTML
+
+<form id="miFormulario">
+  <input type="text" name="usuario" placeholder="nombre de usuario">
+  <input type="text" name="puntos" placeholder="introduce un número par">
+  <button type="submit">enviar</button>
+</form>
+3. valida con las reglas de serie
+para empezar a validar, usas el método .validate(). dentro de rules le dices qué quieres controlar (si es obligatorio, el mínimo de caracteres, si es un email, etc.):
+
+JavaScript
+
+$("#miFormulario").validate({
+  rules: {
+    usuario: {
+      required: true,
+      minlength: 3
+    }
+  },
+  messages: {
+    usuario: "tienes que poner un nombre de al menos 3 letras"
+  }
+});
+4. crea tu propia regla
+si necesitas algo más específico que no viene en la librería, usas $.validator.addMethod. le das un nombre a tu regla, pones la lógica y el mensaje de error:
+
+JavaScript
+
+// creamos la regla personalizada
+$.validator.addMethod("esPar", function(value, element) {
+  return this.optional(element) || (value % 2 === 0);
+}, "el número tiene que ser par");
+
+// ahora la usamos en el formulario igual que las otras
+$("#miFormulario").validate({
+  rules: {
+    puntos: {
+      required: true,
+      esPar: true
+    }
+  }
+});
